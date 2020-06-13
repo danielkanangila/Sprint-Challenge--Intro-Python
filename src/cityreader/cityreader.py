@@ -1,4 +1,7 @@
 import csv
+import math
+import sys
+from numpy import arctan2, random, sin, cos, degrees, sqrt
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
@@ -81,14 +84,42 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
+input1 = input("Enter lat1, lon1: ")
+input2 = input("Enter lat2, lon2: ")
+
+lat1, lon1 = input1.split(",")
+lat2, lon2 = input2.split(",")
 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     # within will hold the cities that fall within the specified region
-    within = []
 
     # TODO Ensure that the lat and lon valuse are all floats
     # Go through each city and check to see if it falls within
     # the specified coordinates.
 
+    ls = [float(lat1), float(lat2)]
+    lns = [float(lon1), float(lon2)]
+
+    ls.sort()
+    lns.sort()
+
+    lat1, lat2 = ls
+    lon1, lon2 = lns
+
+    within = []
+
+    for city in cities:
+        if ((city.lat >= lat1) & (city.lat <= lat2)) & ((city.lon >= lon1) & (city.lon <= lon2)):
+            within.append(city)
+
     return within
+
+
+w = cityreader_stretch(lat1, lon1, lat2, lon2, cities)
+
+for city in w:
+    print(city)
+
+if __name__ == "__main__":
+    pass
