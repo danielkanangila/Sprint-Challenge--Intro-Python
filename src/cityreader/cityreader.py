@@ -51,8 +51,9 @@ def cityreader(cities=[]):
 cities = cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
-for c in cities:
-    print(c)
+if __name__ == "__main__":
+    for c in cities:
+        print(c)
 
 # STRETCH GOAL!
 #
@@ -83,12 +84,14 @@ for c in cities:
 # Tucson: (32.1558,-110.8777)
 # Salt Lake City: (40.7774,-111.9301)
 
-# TODO Get latitude and longitude values from the user
-input1 = input("Enter lat1, lon1: ")
-input2 = input("Enter lat2, lon2: ")
+if __name__ == "__main__":
 
-lat1, lon1 = input1.split(",")
-lat2, lon2 = input2.split(",")
+    # TODO Get latitude and longitude values from the user
+    input1 = input("Enter lat1, lon1: ")
+    input2 = input("Enter lat2, lon2: ")
+
+    lat1, lon1 = input1.split(",")
+    lat2, lon2 = input2.split(",")
 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
@@ -116,10 +119,8 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     return within
 
 
-w = cityreader_stretch(lat1, lon1, lat2, lon2, cities)
-
-for city in w:
-    print(city)
-
 if __name__ == "__main__":
-    pass
+    w = cityreader_stretch(lat1, lon1, lat2, lon2, cities)
+
+    for city in w:
+        print(city)
